@@ -1,238 +1,75 @@
-﻿<!DOCTYPE html>
-<html ng-app="regBase">
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="utf-8" 　/>
-    <title>checkbox多选框</title>
-    <script type="text/javascript" src="./js/angular.js"></script>
-    <script type="text/javascript" src="js/ios9.js"></script>
-    <script type="text/javascript" src="js/app.js"></script>
-    <script src="lib/ionic/js/ionic.bundle.js"></script>
-    <!-- 引入ionic后，屏幕取消浏览器滑块，多余部分溢出 -->
-    <link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="./css/common.css">
-    <link rel="stylesheet" type="text/css" href="./css/general.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <title>ng-cordova demo</title>
+
+  <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+
+  <!-- Facebook Plugin copy pasted from the plugin/facebookplugin/js/... for web-dev -->
+  <script src="lib/facebookConnectPlugin.js"></script>
+
+  <!-- ng cordova js -->
+  <script src="lib/ngCordova/dist/ng-cordova.js"></script>
+
+  <!-- cordova script (this will be a 404 during development) -->
+  <script src="cordova.js"></script>
+
+  <!-- your app's js -->
+  <script src="app/app.js"></script>
+  <script src="app/adMob/adMob.ctrl.js"></script>
+  <script src="app/appAvailability/appAvailability.ctrl.js"></script>
+  <script src="app/appRate/appRate.ctrl.js"></script>
+  <script src="app/barcodeScanner/barcodeScanner.ctrl.js"></script>
+  <script src="app/batteryStatus/batteryStatus.ctrl.js"></script>
+  <script src="app/beacon/beacon.ctrl.js"></script>
+  <script src="app/camera/camera.ctrl.js"></script>
+  <script src="app/clipboard/clipboard.ctrl.js"></script>
+  <script src="app/contacts/contacts.ctrl.js"></script>
+  <script src="app/datePicker/datePicker.ctrl.js"></script>
+  <script src="app/device/device.ctrl.js"></script>
+  <script src="app/deviceMotion/deviceMotion.ctrl.js"></script>
+  <script src="app/deviceOrientation/deviceOrientation.ctrl.js"></script>
+  <script src="app/dialogs/dialogs.ctrl.js"></script>
+  <script src="app/emailComposer/emailComposer.ctrl.js"></script>
+  <script src="app/facebook/facebook.ctrl.js"></script>
+  <script src="app/file/file.ctrl.js"></script>
+  <script src="app/fileOpener2/fileOpener2.ctrl.js"></script>
+  <script src="app/fileTransfer/fileTransfer.ctrl.js"></script>
+  <script src="app/flashlight/flashlight.ctrl.js"></script>
+  <script src="app/geolocation/geolocation.ctrl.js"></script>
+  <script src="app/globalization/globalization.ctrl.js"></script>
+  <script src="app/googleAnalytics/googleAnalytics.ctrl.js"></script>
+  <script src="app/inAppBrowser/inAppBrowser.ctrl.js"></script>
+  <script src="app/localNotification/localNotification.ctrl.js"></script>
+  <script src="app/media/media.ctrl.js"></script>
+  <script src="app/network/network.ctrl.js"></script>
+  <script src="app/oauth/oauth.ctrl.js"></script>
+  <script src="app/preferences/preferences.ctrl.js"></script>
+  <script src="app/printer/printer.ctrl.js"></script>
+  <script src="app/pushNotifications/pushNotifications.ctrl.js"></script>
+  <script src="app/socialSharing/socialSharing.ctrl.js"></script>
+  <script src="app/sqlite/sqlite.ctrl.js"></script>
+  <script src="app/statusbar/statusbar.ctrl.js"></script>
+  <script src="app/toast/toast.ctrl.js"></script>
+  <script src="app/touchid/touchid.ctrl.js"></script>
+  <script src="app/vibration/vibration.ctrl.js"></script>
+  <script src="app/healthkit/healthkit.ctrl.js"></script>
+  <script src="app/upsPushNotifications/pushNotifications.ctrl.js"></script>
 </head>
-<!-- 过滤器  http  表格 -->
-<body ng-controller="RegisterCtrl">
 
-<!-- {{#contentFor "header"}}
-    {{>navbar navLeftIco='glyphicon glyphicon-chevron-left' navLeft='返回'
-    onclick='window.history.go(-1)'
-    transitionLeftOut="slideRightOut"  transitionRightOut='slideLeftOut'
-    title='注册'
-    navRight='' navRightHref=''  navRightIco=''}}
-{{/contentFor}}
-{{>md}} -->
-<!-- start nav-->
-<div class="container">
-    <div class="row">
-        <nav class="navbar navbar-default navbar-fixed-top bg-yellow">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-3 col-md-3 col-sm-3 mobi-hide">
-                        <div class="navbar-header">
-                            <a class="navbar-brand" href="/">
-                                <img src="./img/common/navbar-logo.png" class="navbar-logo" alt="Brand"></a>
-                        </div>
-                    </div>
+<body ng-app="demo" animation="slide-left-right-ios7">
+<ion-nav-bar class="bar-positive nav-title-slide-ios7">
+  <ion-nav-back-button class="button-icon icon ion-ios7-arrow-back">
+  </ion-nav-back-button>
+</ion-nav-bar>
+<ion-nav-view>
 
-
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <div class="row2">
-
-                            <!--左边导航开始-->
-                            <div class="col-xs-4">
-                                <a ng-href="{{nav.navLeftHref}}"
-                                   data-transition-out="slideRightOut" data-transition-in="slideRightIn"
-                                   class="pull-left navbar-ico-left" ng-click="nav.onclick()">
-                                    <button type="button" class="btn btn-navbar">
-                                        <h3><span ng-class={{nav.navLeftIco}}></span><span style="font-size:14px;">{{nav.navLeft}}</span>
-                                        </h3>
-                                    </button>
-                                </a>
-                            </div>
-                            <!--左边导航结束-->
-                            <div class="col-xs-4 text-center ">
-                                <a href="#" id="back-to-top">
-                                    <h3 class="navbar-ico-center">{{nav.title}}</h3>
-                                </a>
-                            </div>
-                            <!--右边导航开始-->
-                            <div class="col-xs-4">
-                                <a href="{{nav.navRightHref}}"
-                                   data-transition-out="slideLeftOut"
-                                   data-transition-in="slideLeftIn"
-                                   class="pull-right navbar-ico-right">
-                                    <button type="button" class="btn btn-navbar">
-                                        <h3><span style="font-size: 14px;">{{nav.navRight}}</span><span class={{nav.navRightIco}}></span>
-                                        </h3>
-                                    </button>
-                                </a>
-                            </div>
-                            <!--右边导航结束-->
-                        </div>
-                    </div>
-
-
-                    <div class="col-lg-3 col-md-3 col-sm-3 mobi-hide">
-                        <!--是否登陆的导航显示判断-->
-
-                        <ul ng-show="islogin" class="nav navbar-nav navbar-right gap-5">
-                            <li><a>{{displayName}} ▾</a></li>
-                        </ul>
-
-                        <ul ng-hide="islogin" class="nav navbar-nav navbar-right gap-5">
-
-                            <li><a href="/login">登录</a></li>
-                            <li><a href="/reg">注册</a></li>
-                        </ul>
-
-
-                    </div>
-                </div>
-
-
-            </div>
-        </nav>
-    </div>
-</div>
-<!-- end nav-->
-
-<!-- start contain -->
-<div class="transitions-content">
-    <div class="bg-yellow4">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-3 col-md-3 well-left-con mobi-hide">
-                    <h4>1、选择注册类型</h4>
-                    <h4>2、基本信息</h4>
-                    <h4>3、验证手机号</h4>
-                    <h4>4、完善信息</h4>
-                    <h4>5、注册成功</h4>
-                </div>
-
-                <div class="col-xs-12 col-sm-6 col-md-6">
-                    <div class="row bg-white gap-15">
-                        <div class="well-infor-log">
-                            <div class="input-group input-group-lg gap-20 {{errorClass.companyName}}">
-                                <input type="text" ng-model="regmsg.companyName" class="form-control infor-title" id="companyName"
-                                       placeholder="请输入企业名称"
-                                       aria-describedby="sizing-addon1" required>
-                            </div>
-                            <div class="lline"></div>
-                            <div class="well-infor-con">
-                                <form class="main form" id="register-form">
-                                    <div class="input-group {{errorClass.name}}">
-                                        <span class="input-group-addon glyphicon glyphicon-top glyphicon-user"
-                                              id="basic-addon1"></span>
-
-                                        <div class="controls">
-                                            <input type="text" id="userName" class="form-control-well" placeholder="负责人姓名"
-                                                   aria-describedby="basic-addon1" ng-model="regmsg.userName" required>
-                                        </div>
-                                    </div>
-                                    <div id="companyType" class="input-group form-control-well input-radio gap-5">
-                                        <!-- <ul class=" ">
-                                        <li> -->
-                                        <input tabindex="15" type="radio" id="flat-radio-1" value="trade"
-                                               name="flat-radio" ng-model="regmsg.type">
-                                        <span for="flat-radio-1" class="text-gray2">交易型企业</span>
-                                        <!--  </li>
-                                        <li> -->
-                                        <input tabindex="16" type="radio" id="flat-radio-2" value="traffic"
-                                               name="flat-radio" ng-model="regmsg.type">
-                                        <span for="flat-radio-2" class="text-gray2">物流型企业</span>
-                                        <!--   </li>
-                                            <li>
-                                               <input tabindex="17" type="radio" id="flat-radio-3" value='logistics'
-                                                      name="flat-radio">
-                                               <label for="flat-radio-3">物流企业</label>
-                                           </li>
-                                       </ul> -->
-                                    </div>
-                                    <div class="input-group {{errorClass.phone}}">
-                                        <span class="input-group-addon glyphicon glyphicon-top glyphicon-phone"
-                                              id="basic-addon1"></span>
-                                        <span class="form-control-well">
-                                            <input type="text" id="phoneNum" class="input-tel" placeholder="输入手机号"
-                                                   aria-describedby="basic-addon1" ng-model="regmsg.phoneNum" required>
-                                            <input type="button" id="getCode" class="pull-right btn btn-purple"
-                                                   ng-click='regmsg.getCode()' value="获取验证码">
-                                        </span>
-                                    </div>
-                                    <div class="input-group {{errorClass.verificationCode}}">
-                                        <span class="input-group-addon glyphicon  glyphicon-top glyphicon-barcode"></span>
-                                        <input type="text" id="verification_code" class="form-control-well" placeholder="获取验证码"
-                                               aria-describedby="basic-addon1" ng-model="regmsg.verification_code" required>
-                                    </div>
-                                    <div class="input-group {{errorClass.password}}">
-                                        <span class="input-group-addon glyphicon glyphicon-top glyphicon-lock"
-                                              id="basic-addon1"></span>
-                                        <input type="password" id="pwd" class="form-control-well" placeholder="设置密码"
-                                               aria-describedby="basic-addon1" ng-module="regmsg.pwd" required>
-                                    </div>
-                                    <!--              <div class="input-group {{errorClass 'again_pwd'}}">
-                                        <span class="input-group-addon glyphicon glyphicon-top glyphicon-lock"
-                                              id="basic-addon1"></span>
-                                        <input type="password" id="again_pwd" class="form-control-well" placeholder="再次输入密码"
-                                               aria-describedby="basic-addon1">
-                                           </div>-->
-
-                                    <div class="checkbox">
-                                        <label>
-                                            <input id="chkAgree" type="checkbox" checked> <a class="checkbox-arrge">同意注册协议</a>
-                                        </label>
-                                    </div>
-                                    <div class="btn-group btn-group-justified gap-15" role="group" aria-label="...">
-                                        <div class="btn-group" role="group">
-                                            <a href="#" id="btnRegister"
-                                               data-transition-out="slideLeftOut" data-transition-in="slideLeftIn">
-                                                <button type="button" class="btn btn-lg btn-purple btn-purple-next"
-                                                        id='login' ng-click="goLogin()">下一步
-                                                </button>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </form>
-
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="gap-50"></div>
-                </div>
-
-                <div class="col-sm-3 col-md-3"></div>
-            </div>
-            <pre>{{regmsg | json}}</pre>
-            <!-- {{>footer}} -->
-        </div>
-    </div>
-</div>
-<div id="md" style="display:none">
-    <div class="md-modal md-effect-15" id="modal-3">
-        <div class="md-content">
-            <h3>您填写的信息有误</h3>
-
-            <div>
-                <!--<p>您可以收到供应商给您的报价,从中你可以选择最适合的采购方案!</p>-->
-                <ul id="errorsUl">
-                    <!--  <li><strong>结算:</strong> 请注意查看该订单的结算细则
-                      </li>
-                      <li><strong>违约:</strong> 请注意查看平台的违约条款
-                      </li>-->
-                </ul>
-                <button class="md-close btn btn-danger btn-block gap-30">好的</button>
-            </div>
-        </div>
-    </div>
-
-    <!--遮罩层-->
-    <div class="md-overlay"></div>
-</div>
-
-<!-- end contain -->
-
+</ion-nav-view>
 </body>
+
 </html>
