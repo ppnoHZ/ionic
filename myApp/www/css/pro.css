@@ -1,0 +1,19 @@
+.okfixed {
+    position: absolute;
+    right: 12px;
+    top: 31px;
+}
+/*/////////////////生产详情左侧线///////////////////////////*/
+.pro-circle {
+	z-index: 999;
+	position: relative;
+}
+.pro-leftline {
+	width: 4px;
+	height: 650px;
+	background: #ddd;
+	position: absolute;
+	left: 22px;
+	top: 196px;
+	z-index: 4;
+}

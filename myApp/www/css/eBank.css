@@ -1,0 +1,180 @@
+﻿/*金融页面样式*/
+
+
+/*财务详情*/
+.realTimeMap {
+    height: 200px;
+    background-color: transparent;
+}
+
+.timeline {
+    position: relative;
+}
+
+.timeline-brown {
+    position: absolute;
+    left: 33.33333%;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    border-right: 1px solid #BE7E37;
+}
+
+.timeline-left {
+    padding-left: 0;
+    padding-right: 15px;
+    margin-bottom: 10px;
+    position: relative;
+
+}
+
+.timeline-right3 {
+    padding: 2px 10px;
+    background: #DB3400;
+    width: 55%;
+    margin-left: 25px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.timeline-right3:after {
+    right: 100%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-width: 10px;
+    top: 10px;
+}
+
+.timeline-right3:after {
+    border-right-color: #DB3400;
+}
+
+.timeline-right4 {
+    padding: 2px 10px;
+    background: #CB825A;
+    width: 55%;
+    margin-left: 25px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.timeline-right4:after {
+    right: 100%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-width: 10px;
+    top: 10px;
+}
+
+.timeline-right4:after {
+    border-right-color: #CB825A;
+}
+
+.timeline-right5 {
+    padding: 2px 10px;
+    background: #FBEFDC;
+    width: 55%;
+    margin-left: 25px;
+    border: 1px solid #DED4C5;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.timeline-right5:after {
+    right: 100%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-width: 10px;
+    top: 10px;
+ 
+}
+
+.timeline-right5:after {
+    border-right-color: #FBEFDC;
+}
+.timeline-right6 {
+    padding: 2px 10px;
+    background: #F0DEFF;
+    width: 55%;
+    margin-left: 25px;
+    border: 1px solid #D4A2FF;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.timeline-right6:after {
+    right: 100%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-width: 10px;
+    top: 10px;
+   
+}
+
+.timeline-right6:after {
+    border-right-color: #F0DEFF;
+}
+.timeline-right7 {
+    padding: 2px 10px;
+    background: #E3FFF3;
+    width: 55%;
+    margin-left: 25px;
+    border: 1px solid #9CEAE1;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.timeline-right7:after {
+    right: 100%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-width: 10px;
+    top: 10px;
+
+}
+
+.timeline-right7:after {
+    border-right-color: #E3FFF3;
+}
+.dot-white {
+    width: 7px;
+    position: absolute;
+    left: 100%;
+    top: 20px;
+    margin-left: -3px;
+}
+
+
+/*订单*/
+.border-right-line-yellow {
+     border-right: 1px solid #EED3BA;
+}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,129 @@
+/*158交易模块的样式*/
+
+/*//////////////////////交易大厅--抢单//////////////////////*/
+.coal-detail {
+    padding: 0 18px;
+}
+
+.coal-detail h5 span {
+    display: block;
+    text-align: right;
+    padding: 5px 5px;
+
+}
+
+.coal-detail h5 small {
+    display: block;
+    text-align: left;
+    font-size: 14px;
+    padding: 5px 5px;
+    line-height: 1.1;
+}
+
+.coal-img {
+    width: 61px;
+}
+/*//////////////////////发布抢单//////////////////////*/
+
+.publish-coal {
+    padding: 0 30px;
+}
+
+.publish-coal h5 span {
+    display: block;
+    padding: 5px 0;
+
+}
+
+.publish-coal h5 a {
+    display: block;
+    padding: 5px 0;
+    color: #878787;
+
+}
+
+/*下现货*/
+.coal-detail1 {
+    padding: 0 10px;
+}
+
+.coal-detail1 h5 span {
+    display: block;
+    text-align: right;
+    padding: 4px 2px;
+
+}
+
+.coal-detail1 h5 small {
+    display: block;
+    text-align: left;
+    font-size: 14px;
+    padding: 4px 0px;
+    line-height: 1.1;
+}
+
+.form-publish {
+    display: block;
+    width: 100%;
+    padding: 10px 0 13px 0;
+    font-size: 14px;
+    height: 20px;
+    line-height: 1.42857143;
+    color: #555;
+    background-image: none;
+    border: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    border-radius: 0px;
+    background: none ;
+    margin-top: 5 px;
+
+}
+.form-publish-1{
+    display: block;
+    width: 75px;
+    /*padding: 10px 0 13px 0;*/
+    font-size: 14px;
+    height: 25px;
+    line-height: 1.42857143;
+    color: #555;
+    background-image: none;
+    border: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    border-radius: 0px;
+    background: none ;
+    margin-top: 5 px;
+
+}
+/*查看抢单卖家*/
+.rush-detail {
+  border-left:3px solid #ccc;
+  margin: 0 0 0 15px;
+}
+/*.rush-detail .list-group-item:first-child {
+ padding-top: 0;
+    height: 16px;
+}*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
