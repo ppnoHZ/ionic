@@ -7,8 +7,8 @@ angular.module('app.localNotification.ctrl', [])
       var now = new Date();
       var _60_seconds_from_now = new Date(now + 60 * 1000);
       var event = {
-        id: 1,
-        at: _60_seconds_from_now,
+        id: 45,
+        //at: _60_seconds_from_now,
         title: "Test Event",
         text: "this is a message about the event"
       };

@@ -34,6 +34,62 @@ angular.module('starter.controllers', [])
     })
     .controller('RegisterCtrl', function ($scope) {
         $scope.ischecked = true;
-    });
+    })
+    .controller('BootstrapCtrl',function($scope,$ionicSlideBoxDelegate,$window){
+
+
+        var w = angular.element($window);
+
+        console.log(w);
+        // $scope.getWindowDimensions = function () {
+        //         return {
+        //             'h': w.height(),
+        //             'w': w.width()
+        //         };
+        //     };
+
+        // $scope.$watch($scope.getWindowDimensions, function (newValue, oldValue) {
+        //     // scope.windowHeight = newValue.h;
+        //     // scope.windowWidth = newValue.w;
+
+        //     if(newValue.w<100)
+        //     {
+        //          $ionicSlideBoxDelegate.enableSlide(false);
+        //      }else
+        //      {
+        //          $ionicSlideBoxDelegate.enableSlide(true);
+
+        //      }
+        //     $scope.style = function () {
+        //         return {
+        //                 'height': (newValue.h - 100) + 'px',
+        //                 'width': (newValue.w - 100) + 'px'
+        //         };
+        //     };
+
+        // }, true);
+
+        w.bind('resize', function () {
+            if(window.innerWidth<768){
+                $ionicSlideBoxDelegate.enableSlide(true);
+
+            }else if(window.innerWidth>=992)
+            {$ionicSlideBoxDelegate.enableSlide(false);
+
+            }
+        });
+
+        $scope.$watch('$viewContentLoaded', function() {
+            if(window.innerWidth<768){
+                $ionicSlideBoxDelegate.enableSlide(true);
+
+            }else if(window.innerWidth>=992)
+            {$ionicSlideBoxDelegate.enableSlide(false);
+
+            }
+            // $window.
+        });
+    })
+    ;
 ;
 

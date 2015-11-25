@@ -6,6 +6,8 @@
 angular.module('starter', [
     'ionic',
     'ngCordova',
+    'ionic-timepicker',
+    'ionic-datepicker',
     'app.dataPicker.ctrl',
     'app.geolocation.ctrl',
     'app.barcodeScanner.ctrl',

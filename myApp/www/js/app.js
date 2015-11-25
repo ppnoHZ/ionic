@@ -102,7 +102,8 @@ angular.module('starter', ['ionic', 'ui.validate', 'starter.controllers', 'start
             })
             .state('bootstrap', {
                 url: '/bootstrap',
-                templateUrl: 'templates/bootstrap.html'
+                templateUrl: 'templates/bootstrap.html',
+                controller:'BootstrapCtrl'
             });
         // if none of the above states are matched, use this as the fallback
         $urlRouterProvider.otherwise('/bootstrap');
