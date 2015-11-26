@@ -5,7 +5,14 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'ui.validate', 'starter.controllers', 'starter.services', 'ngMessages'])
+angular.module('starter', [
+    'ionic',
+    'ui.validate',
+    'starter.controllers',
+    'starter.services',
+    'ngMessages',
+    "restangular"
+])
 
     .run(function ($ionicPlatform) {
         $ionicPlatform.ready(function () {
@@ -23,7 +30,8 @@ angular.module('starter', ['ionic', 'ui.validate', 'starter.controllers', 'start
         });
     })
 
-    .config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+    .config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider,RestangularProvider) {
+        RestangularProvider.setBaseUrl('http://192.168.3.104:18080/api/');
 
         $ionicConfigProvider.platform.ios.tabs.style('standard');
         $ionicConfigProvider.platform.ios.tabs.position('bottom');
@@ -106,6 +114,6 @@ angular.module('starter', ['ionic', 'ui.validate', 'starter.controllers', 'start
                 controller:'BootstrapCtrl'
             });
         // if none of the above states are matched, use this as the fallback
-        $urlRouterProvider.otherwise('/bootstrap');
+        $urlRouterProvider.otherwise('/tab/register');
 
     });

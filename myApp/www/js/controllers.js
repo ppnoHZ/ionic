@@ -32,10 +32,35 @@ angular.module('starter.controllers', [])
             enableFriends: true
         };
     })
-    .controller('RegisterCtrl', function ($scope) {
-        $scope.ischecked = true;
+    .controller('RegisterCtrl', function ($scope, ListConfig, Account) {
+
+        $scope.user = {
+            type: "TRADE"
+        }
+        $scope.companyTypes = ListConfig.getCompanyType();
+
+
+        $scope.register = function () {
+            console.log($scope.user);
+            Account.register($scope.user).then(function (result) {
+                console.log(result);
+            }, function (error) {
+                console.log(error)
+            })
+        }
+
+        $scope.typeChange = function (item) {
+            console.log(item.text);
+            $scope.user.type = item.value;
+        }
+
+
+        $scope.getCode = function () {
+            console.log('get Code');
+            //$event.stopPropagation();
+        }
     })
-    .controller('BootstrapCtrl',function($scope,$ionicSlideBoxDelegate,$window){
+    .controller('BootstrapCtrl', function ($scope, $ionicSlideBoxDelegate, $window) {
 
 
         var w = angular.element($window);
@@ -70,26 +95,26 @@ angular.module('starter.controllers', [])
         // }, true);
 
         w.bind('resize', function () {
-            if(window.innerWidth<768){
+            if (window.innerWidth < 768) {
                 $ionicSlideBoxDelegate.enableSlide(true);
 
-            }else if(window.innerWidth>=992)
-            {$ionicSlideBoxDelegate.enableSlide(false);
+            } else if (window.innerWidth >= 992) {
+                $ionicSlideBoxDelegate.enableSlide(false);
 
             }
         });
 
-        $scope.$watch('$viewContentLoaded', function() {
-            if(window.innerWidth<768){
+        $scope.$watch('$viewContentLoaded', function () {
+            if (window.innerWidth < 768) {
                 $ionicSlideBoxDelegate.enableSlide(true);
 
-            }else if(window.innerWidth>=992)
-            {$ionicSlideBoxDelegate.enableSlide(false);
+            } else if (window.innerWidth >= 992) {
+                $ionicSlideBoxDelegate.enableSlide(false);
 
             }
             // $window.
         });
     })
-    ;
 ;
+
 

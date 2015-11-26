@@ -6,6 +6,8 @@
   },
   "dependencies": {
     "angular-ui-utils": "~3.0.0",
-    "angular-messages": "~1.4.7"
+    "angular-messages": "~1.4.7",
+    "angular-resource": "~1.4.8",
+    "restangular": "~1.5.1"
   }
 }
