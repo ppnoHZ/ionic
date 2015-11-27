@@ -60,8 +60,34 @@ angular.module('starter.services', ['restangular'])
                     d.reject(error);
                 })
                 return d.promise;
+            },
+            checkPhoneExist: function (phone) {
+                var promis = $q.defer();
+                var Phone = Restangular.one('/phone/exist/', phone);
+                Phone.get().then(function (result) {
+                    console.log(result)
+                    promis.resolve(result);
+                }, function (error) {
+                    promis.reject(result);
+                    console.log(error);
+                });
+                return promis.promise;
+                console.log(phone);
+            },
+            getCode: function (phone) {
+                var Phone = Restangular.one('/phone/get_verify_code/', phone);
+                var promis = $q.defer();
+                Phone.get().then(function (result) {
+                    promis.resolve(result);
+                }, function (error) {
+                    promis.reject(result);
+                })
+                return promis.promise;
             }
         }
+    })
+    .factory('Phone', function ($q, Restangular) {
+        var PhoneService = Restangular.allUrl('phone/')
     })
     .factory('ListConfig', function () {
         var companyType = [{

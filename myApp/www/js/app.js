@@ -11,7 +11,8 @@ angular.module('starter', [
     'starter.controllers',
     'starter.services',
     'ngMessages',
-    "restangular"
+    "restangular",
+    'starter.directives'
 ])
 
     .run(function ($ionicPlatform) {

@@ -35,13 +35,17 @@ angular.module('starter.controllers', [])
     .controller('RegisterCtrl', function ($scope, ListConfig, Account) {
 
         $scope.user = {
+            full_name: '斯塔克文化传媒',
+            real_name: '斯塔克',
+            phone: '18515062000',
+            password: '123qaz',
+            confirm_password: '123qaz',
             type: "TRADE"
         }
         $scope.companyTypes = ListConfig.getCompanyType();
 
 
         $scope.register = function () {
-            console.log($scope.user);
             Account.register($scope.user).then(function (result) {
                 console.log(result);
             }, function (error) {
@@ -50,13 +54,20 @@ angular.module('starter.controllers', [])
         }
 
         $scope.typeChange = function (item) {
-            console.log(item.text);
             $scope.user.type = item.value;
         }
 
 
         $scope.getCode = function () {
-            console.log('get Code');
+            Account.getCode($scope.user.phone).then(function (result) {
+                console.log(result);
+                $scope.user.verify_code = result.data.code;
+                //$scope.$apply(function () {
+                //
+                //});
+            }, function (error) {
+                console.log(error);
+            });
             //$event.stopPropagation();
         }
     })
