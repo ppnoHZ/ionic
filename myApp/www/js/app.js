@@ -32,7 +32,7 @@ angular.module('starter', [
     })
 
     .config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider,RestangularProvider) {
-        RestangularProvider.setBaseUrl('http://192.168.3.104:18080/api/');
+        RestangularProvider.setBaseUrl('http://192.168.3.105:18080/api/');
 
         $ionicConfigProvider.platform.ios.tabs.style('standard');
         $ionicConfigProvider.platform.ios.tabs.position('bottom');

@@ -68,7 +68,7 @@ angular.module('starter.services', ['restangular'])
                     console.log(result)
                     promis.resolve(result);
                 }, function (error) {
-                    promis.reject(result);
+                    promis.reject(error);
                     console.log(error);
                 });
                 return promis.promise;
@@ -80,7 +80,7 @@ angular.module('starter.services', ['restangular'])
                 Phone.get().then(function (result) {
                     promis.resolve(result);
                 }, function (error) {
-                    promis.reject(result);
+                    promis.reject(error);
                 })
                 return promis.promise;
             }
