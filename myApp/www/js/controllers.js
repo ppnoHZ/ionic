@@ -32,7 +32,7 @@ angular.module('starter.controllers', [])
             enableFriends: true
         };
     })
-    .controller('RegisterCtrl', function ($scope, ListConfig, Account) {
+    .controller('RegisterCtrl', function ($scope, ListConfig, Account, $ionicPopup, $window) {
 
         $scope.user = {
             //full_name: '斯塔克文化传媒',
@@ -47,6 +47,16 @@ angular.module('starter.controllers', [])
 
         $scope.register = function () {
             Account.register($scope.user).then(function (result) {
+                if (result.status == "success") {
+                    $window.sessionStorage['userInfo'] = JSON.stringify(result.data);
+                    var alertPopup = $ionicPopup.alert({
+                        title: '提示',
+                        template: '注册成功!'
+                    });
+                    //alertPopup.then(function (res) {
+                    //    console.log('Thank you for not eating my delicious ice cream cone');
+                    //});
+                }
                 console.log(result);
             }, function (error) {
                 console.log(error)

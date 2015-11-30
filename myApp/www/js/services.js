@@ -49,10 +49,14 @@ angular.module('starter.services', ['restangular'])
         };
     })
     .factory('Account', function ($q, Restangular) {
-        var Account = Restangular.allUrl('/user_trade/signup');
+
         //var Account = new Restangular.allUrl('one', 'http://192.168.3.104:18080/api/user_trade/');
         return {
             register: function (data) {
+                var Account = Restangular.allUrl('/user_trade/signup');
+                if (data.type == "TRAFFIC") {
+                    Account = Restangular.allUrl('/user_traffic/signup');
+                }
                 var d = $q.defer();
                 Account.post(data).then(function (result) {
                     d.resolve(result);
