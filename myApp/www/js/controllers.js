@@ -61,7 +61,11 @@ angular.module('starter.controllers', [])
         $scope.getCode = function () {
             Account.getCode($scope.user.phone).then(function (result) {
                 console.log(result);
-                $scope.user.verify_code = result.data.code;
+                if (result.status != "success") {
+
+                } else {
+                    $scope.user.verify_code = result.data.code;
+                }
                 //$scope.$apply(function () {
                 //
                 //});

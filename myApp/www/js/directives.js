@@ -4,30 +4,47 @@
  * email:zhoudd@stark.tm
  */
 angular.module('starter.directives', [])
-    .directive('valueUnique', function (Account) {
+    .directive('cUnique', function (Account) {
         return {
             require: 'ngModel',
             link: function (scope, ele, attrs, ctrl) {
-                // console.log('ele', ele)
-                // console.log('scope', scope)
-                // console.log('attrs', attrs)
-                // console.log('c', ctrl)
-                scope.$watch(attrs.ngModel, function (n) {
-                    if (!n)
-                        return;
-                    ctrl.$parsers.push(function (val) {
-                        if(val)
+                console.log('ele', ele)
+                console.log('scope', scope)
+                console.log('attrs', attrs)
+                console.log('ctrl', ctrl)
+                scope.$watch(attrs.ngModel, function () {
+                    //if (!n) {
+                    //    console.log('return')
+                    //    return;
+                    //}
+                    //ctrl.$parsers.push(function (val) {
+                    var val=scope.user.phone;
+                        console.log("ctrl.$valid", ctrl.$valid);
+                        //if (!val) {
+                        //    ctrl.$setValidity('required', false);
+                        //    return val;
+                        //} else
                         {
-                            ctrl.$setValidity('required', true);
-                            return;
-                        }
-                        Account.checkPhoneExist(ctrl.$modelValue).then(function (result) {
-                            //有问题，老是返回not-found
-                            ctrl.$setValidity('valueUnique', result.use);
-                            console.log(!result.use);
-                        })
+                            if (!ctrl.$valid) {
+                                ctrl.$setValidity('valueUnique', true);
+                                //return val;
+                            } else {
 
-                    })
+
+                                Account.checkPhoneExist(val).then(function (result) {
+                                    if (result.status != "success") {
+                                        //ctrl.$setValidity('invalid_format', false);
+                                        ctrl.$setValidity('valueUnique', result.data.use);
+                                    } else {
+                                        //ctrl.$setValidity('invalid_format', true);
+                                        ctrl.$setValidity('valueUnique', !result.data.use);
+                                        console.log(!result.data.use);
+                                    }
+                                });
+                                //return val;
+                            }
+                        }
+                    //})
                 })
             }
         }

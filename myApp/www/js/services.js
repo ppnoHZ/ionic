@@ -72,7 +72,6 @@ angular.module('starter.services', ['restangular'])
                     console.log(error);
                 });
                 return promis.promise;
-                console.log(phone);
             },
             getCode: function (phone) {
                 var Phone = Restangular.one('/phone/get_verify_code/', phone);

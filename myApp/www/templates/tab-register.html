@@ -5,7 +5,9 @@
             <div class="list list-inset">
                 <label class="item item-input">
                     <i class="icon ion-search placeholder-icon"> </i>
-                    <input type="text" name="companyname" placeholder="公司名称(全称)" ng-model="user.full_name" required>
+                    <input type="text" name="companyname" placeholder="公司名称(全称)" ng-model="user.full_name"
+                           required
+                            >
 
                     <div class="error" ng-messages="register_form.companyname.$dirty&&register_form.companyname.$error">
                         <div ng-message="required"> 公司名称不能为空</div>
@@ -19,65 +21,70 @@
                         >
                     {{item.text}}
                 </ion-radio>
-                <!--<label class="item item-radio">-->
-                <!--<input type="radio" name="type">-->
-                <!--<div class="item-content">-->
-                <!--交易型企业-->
-                <!--</div>-->
-                <!--<i class="radio-icon"></i>-->
-                <!--</label>-->
-                <!--<label class="item item-radio">-->
-                <!--<input type="radio" name="type">-->
-                <!--<div class="item-content">-->
-                <!--交易型企业-->
-                <!--</div>-->
-                <!--<i class="radio-icon"></i>-->
-                <!--</label>-->
-
                 <label class="item item-input">
                     <i class="icon ion-search placeholder-icon"> </i>
-                    <input type="text" name="nickname" placeholder="负责人" ng-model="user.real_name" required>
+                    <input type="text" name="nickname" placeholder="负责人" ng-model="user.real_name"
+                           required
+                           ng-pattern="/^[a-zA-Z\u4e00-\u9fa5\s]{2,40}$/"
+                            >
 
                     <div class="error" ng-messages="register_form.nickname.$dirty&&register_form.nickname.$error">
-                        <div ng-message="required"> 负责人不能为空</div>
+                        <div ng-message="required">负责人不能为空</div>
+                        <div ng-message="pattern">格式错误</div>
                     </div>
                 </label>
                 <label class="item item-input">
                     <i class="icon ion-search placeholder-icon"> </i>
-                    <input type="text" name="phone" placeholder="手机号" ng-model="user.phone" required value-unique>
-<!--ng-messages-include="error.html"-->
-                    <div class="error"  ng-messages="register_form.phone.$dirty&&register_form.phone.$error" ng-messages-multiple>
-                        <div ng-message="required"> 手机号不能为空</div>
-                        <div ng-message="valueUnique"> 手机号码已注册</div>
-                    </div>
+                    <input type="text" name="phone" placeholder="手机号" ng-model="user.phone"
+                           required
+                           c-unique
+                           ng-maxlength="13"
+                           ng-pattern="/(^13[0-9]{9}$)|(^15[0-9]{9}$)|(^17[0-9]{9}$)|(^18[012356789][0-9]{8}$)/">
+                    <!--ng-messages-include="error.html"-->
                 </label>
+
+                <div class="error" ng-messages="register_form.phone.$dirty&&register_form.phone.$error" ng-messages-multiple>
+                    <div ng-message="required">手机号不能为空</div>
+                    <div ng-message="pattern">手机号格式错误</div>
+                    <div ng-message="valueUnique">手机号码已注册</div>
+                    <div ng-message="invalid_format">手机号码格式错误</div>
+                </div>
 
                 <div class="item item-input">
                     <i class="icon ion-search placeholder-icon"> </i>
-                    <input type="text" name="verify_code" placeholder="验证码" ng-model="user.verify_code" required>
+                    <input type="text" name="verify_code" placeholder="验证码" ng-model="user.verify_code"
+                           required>
                     <a ng-click="getCode()" ng-disabled="!user.phone" class="button button-positive button-small" style="margin-right:10px">获取验证码</a>
                     <!-- <a  ng-click="getCode()"  ng-disabled="!user.phone" class="button button-positive button-small" style="margin-right:10px">获取验证码</a> -->
-                    <div class="error" ng-messages="register_form.verify_code.$dirty&&register_form.verify_code.$error">
-                        <div ng-message="required"> 验证码不能为空</div>
-                    </div>
+                </div>
+                <div class="error" ng-messages="register_form.verify_code.$dirty&&register_form.verify_code.$error">
+                    <div ng-message="required">验证码不能为空</div>
+                    <div ng-message="pattern">验证码格式错误</div>
                 </div>
 
                 <label class="item item-input">
                     <i class="icon ion-search placeholder-icon"> </i>
-                    <input type="password" name="password" placeholder="密码" ng-model="user.password" required>
+                    <input type="password" name="password" placeholder="密码" ng-model="user.password"
+                           required
+                           ng-pattern="/^[a-zA-Z0-9]{6,16}$/">
 
                     <div class="error" ng-messages="register_form.password.$dirty&&register_form.password.$error">
-                        <div ng-message="required"> 密码不能为空</div>
+                        <div ng-message="required">密码不能为空</div>
+                        <div ng-message="pattern">密码6-16位字符串</div>
+
                     </div>
                 </label>
 
                 <label class="item item-input">
                     <i class="icon ion-search placeholder-icon"> </i>
                     <input type="password" name="confirm_password" placeholder="再次输入密码" ng-model="user.confirm_password"
-                           ui-validate=" '$value==user.password' " required>
+                           ui-validate=" '$value==user.password' "
+                           required
+                           ng-pattern="/^[a-zA-Z0-9]{6,16}$/">
 
                     <div class="error" ng-messages="register_form.confirm_password.$dirty&&register_form.confirm_password.$error">
                         <div ng-message="required"> 请再次输入密码</div>
+                        <div ng-message="pattern">密码格式错误</div>
                     </div>
                 </label>
                 <li class="item item-checkbox">
@@ -92,8 +99,8 @@
                 </button>
             </div>
             {{user | json}}
-            {{ user.clientSide }}
-
+            <!--{{register_form.register_form.phone.$error | json}}-->
+            <!--{{register_form.register_form.password.$error | json}}-->
 
         </form>
     </ion-content>
