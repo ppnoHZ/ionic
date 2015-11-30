@@ -54,7 +54,9 @@
                 <!-- 负责人 end-->
 
                 <!-- 手机号 begin-->
-                <label class="item item-input" ng-class="{ 'has-error' : register_form.phone.$dirty&&register_form.phone.$invalid}">
+                <label class="item item-input"
+                       ng-class="{ 'has-error-lr' : register_form.phone.$dirty&&register_form.phone.$invalid , 'valid-lr' : register_form.phone.$dirty&&register_form.phone.$valid}"
+                        >
                     <i class="icon ion-search placeholder-icon"> </i>
                     <input type="text" name="phone" placeholder="手机号" ng-model="user.phone"
                            required
@@ -76,13 +78,14 @@
 
                 <!-- 验证码 begin-->
                 <div class="item item-input"
-                       ng-class="{ 'has-error-lr' : register_form.verify_code.$dirty&&register_form.verify_code.$invalid , 'valid-lr' : register_form.verify_code.$dirty&&register_form.verify_code.$valid}">
+                     ng-class="{ 'has-error-lr' : register_form.verify_code.$dirty&&register_form.verify_code.$invalid , 'valid-lr' : register_form.verify_code.$dirty&&register_form.verify_code.$valid}"
+                        >
                     <i class="icon ion-search placeholder-icon"> </i>
                     <input type="text" name="verify_code" placeholder="验证码" ng-model="user.verify_code"
                            required
                            ng-pattern="/^[0-9]{6}$/">
                     <a ng-click="getCode()"
-                       ng-disabled="!user.phone||!register_form.phone.$error"
+                       ng-disabled="!user.phone||!register_form.phone.$valid"
                        class="button button-positive button-small"
                        style="margin-right:10px">获取验证码</a>
                     <!-- <a  ng-click="getCode()"  ng-disabled="!user.phone" class="button button-positive button-small" style="margin-right:10px">获取验证码</a> -->
