@@ -8,10 +8,10 @@ angular.module('starter.directives', [])
         return {
             require: 'ngModel',
             link: function (scope, ele, attrs, ctrl) {
-                console.log('ele', ele)
-                console.log('scope', scope)
-                console.log('attrs', attrs)
-                console.log('ctrl', ctrl)
+                //console.log('ele', ele)
+                //console.log('scope', scope)
+                //console.log('attrs', attrs)
+                //console.log('ctrl', ctrl)
                 scope.$watch(attrs.ngModel, function () {
                     //if (!n) {
                     //    console.log('return')

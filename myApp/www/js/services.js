@@ -108,3 +108,31 @@ angular.module('starter.services', ['restangular'])
             }
         }
     })
+    .factory('authenticationService', function ($window) {
+        var userInfo;
+
+        function getUserInfo() {
+            return userInfo;
+        }
+
+        function init() {
+            if ($window.sessionStorage['userInfo']) {
+                userInfo = JSON.parse($window.sessionStorage['userInfo']);
+            }
+        }
+
+        init();
+        return {
+            getUserInfo: getUserInfo()
+        };
+    })
+    .factory('Storage', function ($log) {
+        return {
+            set: function (key, data) {
+                return window.sessionStorage.setItem(key, window.JSON.stringify(data));
+            },
+            get: function (key) {
+                return window.JSON.parse(window.sessionStorage.getItem(key));
+            }
+        }
+    })

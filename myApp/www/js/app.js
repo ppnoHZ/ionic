@@ -31,7 +31,7 @@ angular.module('starter', [
         });
     })
 
-    .config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider,RestangularProvider) {
+    .config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider, RestangularProvider) {
         RestangularProvider.setBaseUrl('http://192.168.3.105:18080/api/');
 
         $ionicConfigProvider.platform.ios.tabs.style('standard');
@@ -112,9 +112,21 @@ angular.module('starter', [
             .state('bootstrap', {
                 url: '/bootstrap',
                 templateUrl: 'templates/bootstrap.html',
-                controller:'BootstrapCtrl'
-            });
-        // if none of the above states are matched, use this as the fallback
+                controller: 'BootstrapCtrl'
+            })
+            .state('tab.main', {
+                url: '/main',
+                views: {
+                    'tab-account': {
+                        templateUrl: 'templates/main.html',
+                        controller: 'MainCtrl'
+                    }
+                }
+
+            })
         $urlRouterProvider.otherwise('/tab/register');
 
-    });
+    })
+// if none of the above states are matched, use this as the fallback
+
+;
