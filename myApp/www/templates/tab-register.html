@@ -33,7 +33,7 @@
                         <div ng-message="pattern">格式错误</div>
                     </div>
                 </label>
-                <label class="item item-input">
+                <label class="item item-input" ng-class="{ 'has-error' : register_form.phone.$invalid}">
                     <i class="icon ion-search placeholder-icon"> </i>
                     <input type="text" name="phone" placeholder="手机号" ng-model="user.phone"
                            required
@@ -62,19 +62,20 @@
                     <div ng-message="pattern">验证码格式错误</div>
                 </div>
 
-                <label class="item item-input">
+                <label class="item item-input"
+                       ng-class="{ 'has-error-lr' : register_form.password.$invalid , 'valid-lr' : register_form.password.$valid}">
                     <i class="icon ion-search placeholder-icon"> </i>
                     <input type="password" name="password" placeholder="密码" ng-model="user.password"
                            required
                            ng-pattern="/^[a-zA-Z0-9]{6,16}$/">
 
-                    <div class="error" ng-messages="register_form.password.$dirty&&register_form.password.$error">
-                        <div ng-message="required">密码不能为空</div>
-                        <div ng-message="pattern">密码6-16位字符串</div>
 
-                    </div>
                 </label>
+                <div class="error" ng-messages="register_form.password.$dirty&&register_form.password.$error">
+                    <div ng-message="required">密码不能为空</div>
+                    <div ng-message="pattern">密码6-16位字符串</div>
 
+                </div>
                 <label class="item item-input">
                     <i class="icon ion-search placeholder-icon"> </i>
                     <input type="password" name="confirm_password" placeholder="再次输入密码" ng-model="user.confirm_password"
