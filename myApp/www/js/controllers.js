@@ -35,11 +35,11 @@ angular.module('starter.controllers', [])
     .controller('RegisterCtrl', function ($scope, ListConfig, Account) {
 
         $scope.user = {
-            full_name: '斯塔克文化传媒',
-            real_name: '斯塔克',
-            phone: '18515062000',
-            password: '123qaz',
-            confirm_password: '123qaz',
+            //full_name: '斯塔克文化传媒',
+            //real_name: '斯塔克',
+            //phone: '18515062000',
+            //password: '123qaz',
+            //confirm_password: '123qaz',
             type: "TRADE"
         }
         $scope.companyTypes = ListConfig.getCompanyType();
