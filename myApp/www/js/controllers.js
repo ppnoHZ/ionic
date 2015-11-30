@@ -48,7 +48,7 @@ angular.module('starter.controllers', [])
         $scope.register = function () {
             Account.register($scope.user).then(function (result) {
                 if (result.status == "success") {
-                    $window.sessionStorage['userInfo'] = JSON.stringify(result.data);
+                    // $window.sessionStorage['userInfo'] = JSON.stringify(result.data);
                     //var alertPopup = $ionicPopup.alert({
                     //    title: '提示',
                     //    template: '注册成功!'
