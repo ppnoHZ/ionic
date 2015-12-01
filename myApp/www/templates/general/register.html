@@ -91,10 +91,19 @@
                     <!-- <a  ng-click="getCode()"  ng-disabled="!user.phone" class="button button-positive button-small" style="margin-right:10px">获取验证码</a> -->
                 </div>
 
-                <div class="form-error " ng-messages="register_form.verify_code.$dirty&&register_form.verify_code.$error">
+                <div class="form-error " 
+                      ng-messages="register_form.verify_code.$dirty&&register_form.verify_code.$error"
+                      ng-messages-multiple
+                 >
                     <div ng-message="required">验证码不能为空</div>
                     <div ng-message="pattern">验证码格式错误(6位数字)</div>
+                    <div ng-message="frequent">
+                      请三分钟之后再试
+                    </div>
                 </div>
+             <!--      <div class="form-error " ng-if="Error.too_frequent">
+                    <div>请三分钟之后再试</div>
+                </div> -->
                 <!-- 验证码 end-->
 
                 <!-- 密码 begin-->

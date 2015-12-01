@@ -33,7 +33,9 @@ angular.module('starter.controllers', [])
         };
     })
     .controller('RegisterCtrl', function ($scope, $state, ListConfig, Account, $ionicPopup, $window, $location) {
-
+        $scope.Error={
+            too_frequent:false
+        }
         $scope.user = {
             //full_name: '斯塔克文化传媒',
             //real_name: '斯塔克',
@@ -69,13 +71,17 @@ angular.module('starter.controllers', [])
         $scope.typeChange = function (item) {
             $scope.user.type = item.value;
         }
-
-
         $scope.getCode = function () {
+            console.log("$scope.register_form",$scope.register_form)
             Account.getCode($scope.user.phone).then(function (result) {
                 console.log(result);
                 if (result.status != "success") {
-
+                    if(result.msg=="too_frequent")
+                    {
+                        $scope.register_form.verify_code.$dirty=true;
+                        $scope.register_form.verify_code.$error.frequent=true;
+                        // $scope.Error.too_frequent=true;
+                    }
                 } else {
                     $scope.user.verify_code = result.data.code;
                 }

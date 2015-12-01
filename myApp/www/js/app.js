@@ -143,7 +143,7 @@ angular.module('starter', [
                 }
 
             })
-        $urlRouterProvider.otherwise('/tab/main');
+        $urlRouterProvider.otherwise('/tab/register');
 
     })
 ;

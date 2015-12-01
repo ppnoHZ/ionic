@@ -13,6 +13,7 @@ angular.module('starter.directives', [])
                 //console.log('attrs', attrs)
                 //console.log('ctrl', ctrl)
                 scope.$watch(attrs.ngModel, function () {
+                    scope.Error.too_frequent=false;
                     //if (!n) {
                     //    console.log('return')
                     //    return;
