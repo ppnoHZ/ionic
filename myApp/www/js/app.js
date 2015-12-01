@@ -66,7 +66,7 @@ angular.module('starter', [
                 url: '/dash',
                 views: {
                     'tab-dash': {
-                        templateUrl: 'templates/tab-dash.html',
+                        templateUrl: 'templates/demo/tab-dash.html',
                         controller: 'DashCtrl'
                     }
                 }
@@ -75,8 +75,8 @@ angular.module('starter', [
             .state('tab.chats', {
                 url: '/chats',
                 views: {
-                    'tab-chats': {
-                        templateUrl: 'templates/tab-chats.html',
+                    'tab-dash': {
+                        templateUrl: 'templates/demo/tab-chats.html',
                         controller: 'ChatsCtrl'
                     }
                 }
@@ -84,8 +84,8 @@ angular.module('starter', [
             .state('tab.chat-detail', {
                 url: '/chats/:chatId',
                 views: {
-                    'tab-chats': {
-                        templateUrl: 'templates/chat-detail.html',
+                    'tab-dash': {
+                        templateUrl: 'templates/demo/chat-detail.html',
                         controller: 'ChatDetailCtrl'
                     }
                 }
@@ -94,8 +94,8 @@ angular.module('starter', [
             .state('tab.account', {
                 url: '/account',
                 views: {
-                    'tab-account': {
-                        templateUrl: 'templates/tab-account.html',
+                    'tab-dash': {
+                        templateUrl: 'templates/demo/tab-account.html',
                         controller: 'AccountCtrl'
                     }
                 }
@@ -103,8 +103,8 @@ angular.module('starter', [
             .state('tab.register', {
                 url: '/register',
                 views: {
-                    'tab-account': {
-                        templateUrl: 'templates/tab-register.html',
+                    'tab-dash': {
+                        templateUrl: 'templates/general/register.html',
                         controller: 'RegisterCtrl'
                     }
                 }
@@ -117,16 +117,33 @@ angular.module('starter', [
             .state('tab.main', {
                 url: '/main',
                 views: {
-                    'tab-account': {
+                    'tab-dash': {
                         templateUrl: 'templates/main.html',
                         controller: 'MainCtrl'
                     }
                 }
 
             })
-        $urlRouterProvider.otherwise('/tab/register');
+            .state('tab.me', {
+                url: '/me',
+                views: {
+                    'tab-dash': {
+                        templateUrl: 'templates/me/me.html',
+                        controller: 'MainCtrl'
+                    }
+                }
+            })
+            .state('tab.pass', {
+                url: '/pass',
+                views: {
+                    'tab-dash': {
+                        templateUrl: 'templates/pass/pass.html',
+                        controller: 'MainCtrl'
+                    }
+                }
+
+            })
+        $urlRouterProvider.otherwise('/tab/main');
 
     })
-// if none of the above states are matched, use this as the fallback
-
 ;
