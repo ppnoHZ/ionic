@@ -8,7 +8,10 @@
                        ng-class="{ 'has-error-lr' : register_form.companyname.$dirty&&register_form.companyname.$invalid , 'valid-lr' : register_form.companyname.$dirty&&register_form.companyname.$valid}"
                         >
                     <i class="icon ion-search placeholder-icon"> </i>
-                    <input type="text" name="companyname" placeholder="公司名称(全称)" ng-model="user.full_name"
+                    <input type="text"
+                           name="companyname"
+                           placeholder="公司名称(全称)"
+                           ng-model="user.full_name"
                            required
                            ng-pattern="/^[\s\S]{4,20}$/"
                             >
@@ -39,7 +42,10 @@
                        ng-class="{ 'has-error-lr' : register_form.nickname.$dirty&&register_form.nickname.$invalid , 'valid-lr' : register_form.nickname.$dirty&&register_form.nickname.$valid}"
                         >
                     <i class="icon ion-search placeholder-icon"> </i>
-                    <input type="text" name="nickname" placeholder="负责人" ng-model="user.real_name"
+                    <input type="text"
+                           name="nickname"
+                           placeholder="负责人"
+                           ng-model="user.real_name"
                            required
                            ng-pattern="/^[a-zA-Z\u4e00-\u9fa5\s]{2,10}$/"
                             >
@@ -58,7 +64,10 @@
                        ng-class="{ 'has-error-lr' : register_form.phone.$dirty&&register_form.phone.$invalid , 'valid-lr' : register_form.phone.$dirty&&register_form.phone.$valid}"
                         >
                     <i class="icon ion-search placeholder-icon"> </i>
-                    <input type="text" name="phone" placeholder="手机号" ng-model="user.phone"
+                    <input type="text"
+                           placeholder="手机号"
+                           ng-model="user.phone"
+                           name="phone"
                            required
                            c-unique
                            ng-maxlength="13"
