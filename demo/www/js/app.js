@@ -11,7 +11,9 @@ angular.module('starter', [
     'app.dataPicker.ctrl',
     'app.geolocation.ctrl',
     'app.barcodeScanner.ctrl',
-    'app.localNotification.ctrl'
+    'app.localNotification.ctrl',
+    'app.TakePhotoCtrl.ctrl',
+    'app.contacts.ctrl'
 
 ])
 
@@ -55,6 +57,17 @@ angular.module('starter', [
                 templateUrl: 'app/localNotification/localNotification.html',
                 controller: 'LocalNotificationCtrl'
             })
+            .state('takePhoto', {
+                url: '/takePhoto',
+                templateUrl: 'app/photo/takephoto.html',
+                controller: 'TakePhotoCtrl'
+            })
+            .state('contacts', {
+                url: '/contacts',
+                templateUrl: 'app/contacts/contacts.html',
+                controller: 'ContactsCtrl'
+            })
+
 
 
         $urlRouterProvider.otherwise('/menu')

@@ -9,5 +9,4 @@ Start off by adding a cordova platform:
 
 ```
 cordova platform add ios / android
-```
-
+`
