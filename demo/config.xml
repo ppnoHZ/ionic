@@ -41,4 +41,5 @@
     </platform>
     <plugin name="org.apache.cordova.camera" spec="~0.3.6" />
     <plugin name="cordova-plugin-contacts" spec="~2.0.1" />
+    <plugin name="com.cordova.plugins.sms" spec="https://github.com/cordova-sms/cordova-sms-plugin.git" />
 </widget>

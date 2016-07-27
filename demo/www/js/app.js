@@ -13,7 +13,8 @@ angular.module('starter', [
     'app.barcodeScanner.ctrl',
     'app.localNotification.ctrl',
     'app.TakePhotoCtrl.ctrl',
-    'app.contacts.ctrl'
+    'app.contacts.ctrl',
+    'app.sms.ctrl'
 
 ])
 
@@ -66,6 +67,11 @@ angular.module('starter', [
                 url: '/contacts',
                 templateUrl: 'app/contacts/contacts.html',
                 controller: 'ContactsCtrl'
+            })
+            .state('sms', {
+                url: '/sms',
+                templateUrl: 'app/SMS/sms.html',
+                controller: 'smsCtrl'
             })
 
 

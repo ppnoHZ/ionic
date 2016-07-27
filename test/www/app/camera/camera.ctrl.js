@@ -4,16 +4,21 @@ angular.module('demo.camera.ctrl', [])
     $scope.takePicture = function () {
       var options = {
         quality: 50,
-        destinationType: Camera.DestinationType.DATA_URL,
+        destinationType: Camera.DestinationType.FILE_URI,
+        // destinationType: Camera.DestinationType.DATA_URL,
+
+
         sourceType: Camera.PictureSourceType.CAMERA
       };
 
       // udpate camera image directive
       $cordovaCamera.getPicture(options).then(function (imageData) {
+        window.alert(imageData)
         $scope.cameraimage = "data:image/jpeg;base64," + imageData;
       }, function (err) {
+        window.alert(err)
         console.log('Failed because: ');
-		console.log(err);
+        console.log(err);
       });
     };
   });
