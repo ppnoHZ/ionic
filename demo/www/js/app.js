@@ -14,11 +14,34 @@ angular.module('starter', [
     'app.localNotification.ctrl',
     'app.TakePhotoCtrl.ctrl',
     'app.contacts.ctrl',
-    'app.sms.ctrl'
+    'app.sms.ctrl',
+    'app.share.ctrl'
 
 ])
 
     .run(function ($ionicPlatform) {
+
+
+
+        // deeplink.setup({
+        //     iOS: {
+        //         appName: "ionic-demo",
+        //         appId: "123456789",
+        //         storeUrl: "http://...",
+        //     },
+        //     android: {
+        //         appId: "com.ionic.demo1",
+        //         storeUrl: "http://www.baidu.com",
+                
+        //     },
+        //     // androidDisabled: true,
+        //     fallback: false
+        // });
+
+        // window.onload = function () {
+        //     deeplink.open("myapp://object/xyz");
+        // }
+
         $ionicPlatform.ready(function () {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
@@ -73,6 +96,12 @@ angular.module('starter', [
                 templateUrl: 'app/SMS/sms.html',
                 controller: 'smsCtrl'
             })
+            .state('share', {
+                url: '/share',
+                templateUrl: 'app/share.html',
+                controller: 'shareCtrl'
+            })
+
 
 
 
