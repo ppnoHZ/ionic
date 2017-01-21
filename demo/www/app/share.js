@@ -21,7 +21,7 @@ angular.module('app.share.ctrl', [])
             android: {
                 appId: "com.ionic.demo",
                 storeUrl: "http://www.baidu.com",
-                
+
             },
             // androidDisabled: true,
         });
@@ -32,7 +32,9 @@ angular.module('app.share.ctrl', [])
             url: "myapp://object/xyz"
         };
 
+        
 
+        
         $scope.open = function () {
             deeplink.open($scope.messageInfo.url);
         }

@@ -15,7 +15,8 @@ angular.module('starter', [
     'app.TakePhotoCtrl.ctrl',
     'app.contacts.ctrl',
     'app.sms.ctrl',
-    'app.share.ctrl'
+    'app.share.ctrl',
+    'app.controllers.ctrl'
 
 ])
 
@@ -32,7 +33,7 @@ angular.module('starter', [
         //     android: {
         //         appId: "com.ionic.demo1",
         //         storeUrl: "http://www.baidu.com",
-                
+
         //     },
         //     // androidDisabled: true,
         //     fallback: false
@@ -54,7 +55,8 @@ angular.module('starter', [
             //$cordovaPlugin.someFunction().then(success, error);
         });
     })
-    .config(function ($stateProvider, $urlRouterProvider) {
+    .config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+        $ionicConfigProvider.scrolling.jsScrolling(false);
 
         $stateProvider
             .state('menu', {
@@ -100,6 +102,11 @@ angular.module('starter', [
                 url: '/share',
                 templateUrl: 'app/share.html',
                 controller: 'shareCtrl'
+            })
+            .state('test', {
+                url: '/test',
+                templateUrl: 'app/test.html',
+                controller: 'testCtrl'
             })
 
 

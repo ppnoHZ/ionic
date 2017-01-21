@@ -21,4 +21,15 @@ cordova platform update android or cordova platform update android@5.1.1
     > ionic resources
 
 
+# 输入框键盘问题
 
+
+# 当键盘弹出时，导航隐藏   
+
+添加样式  hide-on-keyboard-open
+
+```html
+<div class="hide-on-keyboard-open">
+  <div id="google-map"></div>
+</div>1
+```
