@@ -1,6 +1,6 @@
 angular.module('app.sms.ctrl', [])
 
-    .controller('smsCtrl', function ($scope, $rootScope, $cordovaSms) {
+    .controller('smsCtrl', function ($scope, $rootScope, $cordovaSms,$ionicPopover) {
 
         $scope.messageInfo = {
             phoneNumber: "",
@@ -8,7 +8,11 @@ angular.module('app.sms.ctrl', [])
         };
 
 
-        
+        $ionicPopover.fromTemplateUrl('templates/popover.html', {
+            scope: $scope,
+        }).then(function (popover) {
+            $scope.popover = popover;
+        });
 
 
         $scope.send = function () {
